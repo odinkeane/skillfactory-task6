@@ -1,0 +1,122 @@
+@font-face {
+    font-family: "arcade";
+    src: url('font/arcade.ttf');
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "arcade", monospace;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(#000000da, #000000da), url(background.jpg);
+    background-size: cover;
+    overflow: hidden;
+}
+
+canvas{
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 100px black;
+}
+
+.score{
+    position: absolute;
+    left: 10%;
+    top: 100px;
+    font-weight: bold;
+    cursor: default;
+    user-select: none;
+    z-index: 10;
+}
+
+.score img, .best-score img{
+    height: 48px;
+}
+
+
+
+.restart{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 400%;
+    transition: 1s ease;
+    color: rgb(0, 252, 223);
+    text-shadow: 3px 3px 2px black;
+    z-index: 200;
+}
+.restart{
+    text-align: center;
+    font-size: 76px;
+    user-select: none;
+}
+
+.best-score, .best{
+    font-size: 48px;
+}
+
+.restart h2{
+    display: none;
+}
+
+
+.restart button{
+    all: unset;
+    font-size: 44px;
+    padding: 5px 10px;
+    color: black;
+    border: 4px solid rgb(0, 252, 223);
+    text-shadow: none;
+    background: white;
+}
+.restart button:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .best-score, .best, .now, .your-score, .restart h2, .restart-btn{
+        font-size: 36px !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .best-score, .best, .now, .your-score, .restart h2, .restart-btn{
+        font-size: 24px !important;
+    }
+}
+
+@media screen and (max-width:392px) {
+    .canvas{
+        border-radius: 0px;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 697px) {
+    body{
+        transform: rotateZ(-90deg);
+    }
+    .score{
+        left: 30%;
+        top: -40%;
+    }
+    .restart{
+        width: 100vh;
+        height: 100vw;
+        bottom: 160%;
+    }
+    .best-score, .best, .now, .your-score, .restart h2, .restart-btn{
+        font-size: 24px !important;
+    }
+}
