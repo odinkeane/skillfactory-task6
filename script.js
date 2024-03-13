@@ -146,7 +146,15 @@ window.addEventListener('touchstart', () => {
         }
     }
 });
-
+window.addEventListener('click', () => { 
+    if (isrunning) {
+        bird.up();
+        if (!upPipe.isMoving()) {
+            upPipe.moving();
+            downPipe.moving();
+        }
+    }
+});
 
 function restart() {
     bird.hit();
