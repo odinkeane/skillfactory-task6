@@ -137,6 +137,17 @@ window.addEventListener('mousedown', (event) => {
     }
 })
 
+window.addEventListener('touchstart', () => { 
+    if (isrunning) {
+        bird.up();
+        if (!upPipe.isMoving()) {
+            upPipe.moving();
+            downPipe.moving();
+        }
+    }
+});
+
+
 function restart() {
     bird.hit();
     document.querySelector('.restart').style.bottom = (window.innerHeight < 697 && window.screen.orientation.type == "landscape-primary") ? "-60%" : "0%";
